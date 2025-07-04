@@ -40,11 +40,11 @@ if submitted:
             email = result["batch_response"][0]
             st.markdown(f"**Subject:** {email['Subject']}")
             st.markdown(f"**Category:** `{email['category']}`")
-            st.text_area("Thread Summary", email["Body"])
+            st.text_area("Thread Summary", email["body"])
         else:
             st.error(f"API Error: {response.status_code}")
             st.json(response.text)
 
     except Exception as e:
-        st.error("Request failed. Check your internet or the endpoint.")
+        st.error("🚨 Request failed. Check your internet or the endpoint.")
         st.exception(e)
