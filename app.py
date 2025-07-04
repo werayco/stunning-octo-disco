@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import json
+url = st.secrets["URL"]
 
 st.set_page_config(page_title="Email Classifier", layout="centered")
 st.title("📬 Email Thread Classifier")
@@ -28,7 +29,7 @@ if submitted:
     st.write("🔁 Sending request to the classification API...")
     try:
         response = requests.post(
-            "https://classifier.model.soemailsecurity.com/batch-categorizer",
+            url,
             headers={"Content-Type": "application/json"},
             data=json.dumps(payload)
         )
