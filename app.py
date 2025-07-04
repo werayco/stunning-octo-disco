@@ -40,7 +40,7 @@ if submitted:
             email = result["batch_response"][0]
             st.markdown(f"**Subject:** {email['Subject']}")
             st.markdown(f"**Category:** `{email['category']}`")
-            st.text_area("Thread Summary", email["body"], height=250)
+            st.text_area("Thread Summary", email["Body"])
         else:
             st.error(f"API Error: {response.status_code}")
             st.json(response.text)
